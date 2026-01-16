@@ -4,10 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Старые Друзья — кафе на Ленинградском шоссе</title>
+  <meta name="description" content="Кафе «Старые Друзья»: кавказская, русская и европейская кухня, летняя терраса и зимняя веранда. Москва, Ленинградское шоссе, 65с1." />
 
-  <meta name="description" content="Кафе «Старые Друзья» — кавказская, русская и европейская кухня. Летняя терраса и зимняя веранда. Москва, Ленинградское шоссе, 65с1." />
-
+  <!-- Canonical -->
   <link rel="canonical" href="https://denisbykov1991-spec.github.io/staryye-druzya/" />
+
+  <!-- Open Graph / Messengers preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Старые Друзья" />
+  <meta property="og:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
+  <meta property="og:description" content="Кавказская, русская и европейская кухня 🍽️ + летняя терраса и зимняя веранда 🌿❄️. Москва." />
+  <meta property="og:url" content="https://denisbykov1991-spec.github.io/staryye-druzya/" />
+  <meta property="og:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
+  <meta name="twitter:description" content="Кухня Кавказа + классика 🍽️, веранда круглый год 🌿❄️. Москва." />
+  <meta name="twitter:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,172 +34,279 @@
 </head>
 
 <body>
+  <!-- Top nav (NOT sticky) -->
+  <nav class="topnav" aria-label="Навигация">
+    <div class="container topnav__inner">
+      <a class="brand" href="#top" aria-label="Наверх">☕ Старые Друзья</a>
 
-<!-- NAV -->
-<nav class="topnav">
-  <div class="container topnav__inner">
-    <a class="brand" href="#top">☕ Старые Друзья</a>
-
-    <div class="topnav__links">
-      <a href="#about">О кафе</a>
-      <a href="#menu">Меню</a>
-      <a href="#services">Удобства</a>
-      <a href="#reviews">Отзывы</a>
-      <a href="#contacts">Контакты</a>
-    </div>
-
-    <div class="topnav__actions">
-      <a class="topnav__btn" href="tel:+74956269528">📞</a>
-      <a class="topnav__btn topnav__btn--wa wa-pulse" href="https://wa.me/74956269528">💬</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header id="top" class="hero" style="--hero-img:url('img/hero.jpg')">
-  <div class="container hero__inner">
-    <div class="hero__panel">
-      <h1>Кафе «Старые Друзья» ☕</h1>
-      <p class="lead">
-        Кавказская, русская и европейская кухня 🍽️  
-        Уютное место для встреч с друзьями и семьёй
-      </p>
-
-      <div class="meta">
-        <span>⭐ 4,7</span>
-        <span>📝 1000+ отзывов</span>
-        <span>🕒 Открыто до 23:00</span>
+      <div class="topnav__links" role="navigation" aria-label="Разделы">
+        <a href="#about">✨ О кафе</a>
+        <a href="#menu">🍽️ Блюда</a>
+        <a href="#services">✅ Удобства</a>
+        <a href="#howto">🧭 Как найти</a>
+        <a href="#contacts">📍 Контакты</a>
       </div>
 
-      <div class="actions">
-        <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
-        <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528">💬 WhatsApp</a>
-        <a class="btn btn--ghost" href="https://2gis.ru/moscow/firm/70000001022725761" target="_blank">🗺️ 2ГИС</a>
+      <div class="topnav__actions">
+        <a class="topnav__btn" href="tel:+74956269528" aria-label="Позвонить">📞</a>
+        <a class="topnav__btn topnav__btn--wa wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
       </div>
     </div>
-  </div>
-</header>
+  </nav>
 
-<main>
+  <!-- HERO -->
+  <header id="top" class="hero" style="--hero-img:url('img/hero.jpg')">
+    <div class="container hero__inner">
+      <div class="hero__panel">
+        <h1>Старые Друзья ☕</h1>
+        <p class="lead">
+          Кавказская, русская и европейская кухня 🍽️  
+          Уютное место для встреч с друзьями и семьёй 🙂
+        </p>
 
-<!-- ABOUT -->
-<section id="about" class="section section--mist">
-  <div class="container">
-    <h2>О кафе ✨</h2>
-    <p class="muted">
-      «Старые Друзья» — уютное кафе в районе Ленинградского шоссе,  
-      куда приходят за вкусной едой, спокойной атмосферой и живым общением.
-    </p>
+        <div class="meta">
+          <span>⭐ 4,7</span>
+          <span>📝 1000+ отзывов</span>
+          <span>🕒 До 23:00</span>
+        </div>
 
-    <ul class="bullets">
-      <li>👨‍👩‍👧‍👦 Подходит для семейных ужинов</li>
-      <li>🤝 Встречи с друзьями и коллегами</li>
-      <li>💼 Спокойные бизнес-обеды</li>
-      <li>🎉 Небольшие праздники и дни рождения</li>
-    </ul>
-  </div>
-</section>
-
-<!-- MENU -->
-<section id="menu" class="section section--sky">
-  <div class="container">
-    <h2>Популярные блюда 😋</h2>
-
-    <div class="grid grid--3">
-      <div class="card"><img src="img/khachapuri.jpg"><h3>Хачапури</h3></div>
-      <div class="card"><img src="img/khinkali.jpg"><h3>Хинкали</h3></div>
-      <div class="card"><img src="img/shashlik.jpg"><h3>Шашлык</h3></div>
-      <div class="card"><img src="img/chkmeruli.jpg"><h3>Чкмерули</h3></div>
-      <div class="card"><img src="img/kharcho.jpg"><h3>Харчо</h3></div>
-      <div class="card"><img src="img/terrace.jpg"><h3>Веранда</h3></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section section--paper">
-  <div class="container">
-    <h2>Удобства и сервисы ✅</h2>
-
-    <div class="grid grid--2">
-      <ul class="bullets">
-        <li>💳 Оплата картой</li>
-        <li>🚗 Парковка рядом</li>
-        <li>🥡 Еда с собой</li>
-        <li>🚚 Доставка</li>
-      </ul>
-
-      <ul class="bullets">
-        <li>🌿 Летняя терраса</li>
-        <li>❄️ Зимняя веранда</li>
-        <li>🧾 Предзаказ</li>
-        <li>☕ Кофе и напитки</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="section section--dark">
-  <div class="container">
-    <h2>Отзывы гостей 💛</h2>
-
-    <div class="grid grid--3">
-      <div class="card card--dark">«Очень уютно, вкусно и спокойно»</div>
-      <div class="card card--dark">«Харчо и шашлык — 🔥»</div>
-      <div class="card card--dark">«Приятный персонал и веранда»</div>
-    </div>
-
-    <p class="muted" style="margin-top:16px;">
-      ⭐ Рейтинг 4,7 на основе отзывов в 2ГИС и Яндекс Картах
-    </p>
-  </div>
-</section>
-
-<!-- CONTACTS -->
-<section id="contacts" class="section section--mist">
-  <div class="container grid grid--2">
-    <div class="card">
-      <h2>Контакты 📍</h2>
-      <p><b>Адрес:</b> Москва, Ленинградское шоссе, 65с1</p>
-      <p><b>Этаж:</b> 1</p>
-      <p><b>Телефон:</b> <a href="tel:+74956269528">+7 (495) 626-95-28</a></p>
-      <p><b>Режим работы:</b> ежедневно до 23:00 🕒</p>
-
-      <a class="btn btn--ghost" href="https://2gis.ru/moscow/firm/70000001022725761" target="_blank">
-        🗺️ Открыть в 2ГИС
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>Как нас найти 🧭</h2>
-      <p class="muted">
-        Мы находимся на первом этаже, удобный вход с улицы.  
-        Удобно добираться со стороны Ленинградского шоссе и Беломорской.
-      </p>
-
-      <div class="map">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?oid=107307470305&z=16"
-          width="100%" height="300" frameborder="0">
-        </iframe>
+        <div class="actions">
+          <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
+          <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn btn--ghost" href="https://2gis.ru/moscow/firm/70000001022725761" target="_blank" rel="noopener">🗺️ 2ГИС</a>
+          <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">🗺️ Яндекс</a>
+        </div>
       </div>
-
-      <p class="trust muted">
-        ℹ️ Информация на сайте собрана из 2ГИС, Яндекс Карт и отзывов гостей
-      </p>
     </div>
-  </div>
-</section>
+  </header>
 
-</main>
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="section section--mist section--divider">
+      <div class="container">
+        <div class="section__head">
+          <h2>О кафе ✨</h2>
+          <p class="muted">
+            «Старые Друзья» — уютное кафе в районе Ленинградского шоссе:  
+            приходят за вкусной едой, спокойной атмосферой и хорошим общением 🙂
+          </p>
+        </div>
 
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="muted">© Кафе «Старые Друзья», Москва</div>
-    <div class="note">Демо-версия сайта. Может быть использован как официальный.</div>
-  </div>
-</footer>
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 style="margin-top:0;">Подходит для 👇</h3>
+            <ul class="bullets">
+              <li>👨‍👩‍👧‍👦 семейных ужинов</li>
+              <li>🤝 встреч с друзьями и коллегами</li>
+              <li>💼 спокойных бизнес-обедов</li>
+              <li>🎉 небольших праздников</li>
+            </ul>
 
+            <div class="actions" style="margin-top:12px;">
+              <a class="btn btn--primary" href="tel:+74956269528">📞 Забронировать</a>
+              <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-top:0;">Мини-галерея 📷</h3>
+            <p class="muted">Атмосфера и блюда — чтобы быстро понять настроение места.</p>
+
+            <div class="gallery">
+              <img src="img/hero.jpg" alt="Атмосфера">
+              <img src="img/terrace.jpg" alt="Веранда">
+              <img src="img/khachapuri.jpg" alt="Хачапури">
+              <img src="img/shashlik.jpg" alt="Шашлык">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="section section--sky section--divider">
+      <div class="container">
+        <div class="section__head">
+          <h2>Популярные блюда 😋</h2>
+          <p class="muted">Короткая подборка “хитов”.</p>
+        </div>
+
+        <div class="grid grid--3 menu-grid">
+          <article class="card menu-card">
+            <img src="img/khachapuri.jpg" alt="Хачапури">
+            <h3>Хачапури 🧀</h3>
+            <p class="muted">Классика Кавказа — идеальный старт.</p>
+          </article>
+
+          <article class="card menu-card">
+            <img src="img/khinkali.jpg" alt="Хинкали">
+            <h3>Хинкали 🥟</h3>
+            <p class="muted">Плотно, сочно, очень “по-дружески”.</p>
+          </article>
+
+          <article class="card menu-card">
+            <img src="img/shashlik.jpg" alt="Шашлык">
+            <h3>Шашлык 🔥</h3>
+            <p class="muted">То, ради чего часто приходят снова.</p>
+          </article>
+
+          <article class="card menu-card">
+            <img src="img/chkmeruli.jpg" alt="Чкмерули">
+            <h3>Чкмерули 🍗</h3>
+            <p class="muted">Нежно и ароматно — “комфорт-фуд”.</p>
+          </article>
+
+          <article class="card menu-card">
+            <img src="img/kharcho.jpg" alt="Харчо">
+            <h3>Харчо 🍲</h3>
+            <p class="muted">Согревает и отлично заходит зимой.</p>
+          </article>
+
+          <article class="card menu-card">
+            <img src="img/terrace.jpg" alt="Веранда">
+            <h3>Веранда 🌿</h3>
+            <p class="muted">Летняя терраса и зимняя веранда.</p>
+          </article>
+        </div>
+
+        <div class="section__actions">
+          <a class="btn btn--primary" href="tel:+74956269528">📞 Уточнить меню и места</a>
+          <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section section--paper section--divider">
+      <div class="container">
+        <div class="section__head">
+          <h2>Удобства и сервисы ✅</h2>
+          <p class="muted">Всё важное — в одном месте, чтобы гостям было проще 🙂</p>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 style="margin-top:0;">Удобно для гостей</h3>
+            <ul class="bullets">
+              <li>💳 оплата картой</li>
+              <li>🚗 парковка рядом</li>
+              <li>🥡 еда с собой</li>
+              <li>🚚 доставка</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-top:0;">Атмосфера</h3>
+            <ul class="bullets">
+              <li>🌿 летняя терраса</li>
+              <li>❄️ зимняя веранда</li>
+              <li>☕ кофе и напитки</li>
+              <li>🧑‍💼 удобно для встреч</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO FIND -->
+    <section id="howto" class="section section--mist section--divider">
+      <div class="container">
+        <div class="section__head">
+          <h2>Как нас найти 🧭</h2>
+          <p class="muted">Коротко и по делу — чтобы не теряться по пути.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="card">
+            <h3 style="margin-top:0;">Ориентиры</h3>
+            <ul class="bullets">
+              <li>📍 Москва, Ленинградское шоссе, 65с1</li>
+              <li>🏢 1 этаж</li>
+              <li>🚇 Метро: Беломорская (около 1,4 км)</li>
+              <li>🚗 Удобный подъезд со стороны Ленинградского шоссе</li>
+            </ul>
+
+            <div class="actions" style="margin-top:12px;">
+              <a class="btn btn--ghost" href="https://2gis.ru/moscow/firm/70000001022725761" target="_blank" rel="noopener">🗺️ Открыть в 2ГИС</a>
+              <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">🗺️ Открыть в Яндекс</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin-top:0;">Карта</h3>
+            <div class="map">
+              <iframe
+                title="Карта"
+                src="https://yandex.ru/map-widget/v1/?ll=37.459322%2C55.866321&z=16&pt=37.459322%2C55.866321%2Cpm2rdm&mode=search"
+                width="100%"
+                height="320"
+                frameborder="0"
+                style="border:0;"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p class="muted" style="margin-top:10px;">📌 Точка отмечена на карте — можно сразу строить маршрут.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section section--paper section--divider">
+      <div class="container">
+        <div class="grid grid--2">
+          <div class="card">
+            <h2 style="margin-top:0;">Контакты 📍</h2>
+            <p><b>Адрес:</b> Москва, Ленинградское шоссе, 65с1</p>
+            <p><b>Этаж:</b> 1</p>
+            <p><b>Телефон:</b> <a class="link" href="tel:+74956269528">+7 (495) 626-95-28</a></p>
+            <p><b>Режим работы:</b> ежедневно до 23:00 🕒</p>
+
+            <div class="actions">
+              <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
+              <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+
+            <p class="trust muted">
+              ℹ️ Демо-версия: информация собрана из 2ГИС, Яндекс Карт и отзывов гостей.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2 style="margin-top:0;">Быстрая заявка 📩</h2>
+            <p class="muted">Демо-форма (без отправки). Для брони — лучше звонок или WhatsApp.</p>
+
+            <form class="form" onsubmit="event.preventDefault(); alert('Демо: форма отключена. Для брони позвоните или напишите в WhatsApp 🙂');">
+              <label>
+                <span>Имя</span>
+                <input required name="name" />
+              </label>
+              <label>
+                <span>Телефон</span>
+                <input required name="phone" type="tel" />
+              </label>
+              <label>
+                <span>Комментарий</span>
+                <textarea name="comment" placeholder="дата/время, количество гостей, веранда/зал"></textarea>
+              </label>
+              <div class="form__actions">
+                <button class="btn btn--primary" type="submit">✅ Отправить</button>
+                <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted">© Кафе «Старые Друзья», Москва</div>
+      <div class="muted">💡 Демо-сайт. Можно подключить домен и форму обратной связи.</div>
+    </div>
+  </footer>
 </body>
 </html>
+
