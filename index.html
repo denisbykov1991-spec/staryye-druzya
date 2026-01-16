@@ -15,8 +15,26 @@
 </head>
 
 <body>
+  <!-- Top anchor nav -->
+  <nav class="topnav" aria-label="Навигация">
+    <div class="container topnav__inner">
+      <a class="brand" href="#top" aria-label="Наверх">☕ Staryye druzya</a>
+
+      <div class="topnav__links" role="navigation" aria-label="Разделы">
+        <a data-spy href="#menu">🍽️ Меню</a>
+        <a data-spy href="#reviews">💛 Отзывы</a>
+        <a data-spy href="#contacts">📍 Контакты</a>
+      </div>
+
+      <div class="topnav__actions">
+        <a class="topnav__btn" href="tel:+74956269528" aria-label="Позвонить">📞</a>
+        <a class="topnav__btn topnav__btn--wa wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- HERO -->
-  <header class="hero reveal" style="--hero-img:url('img/hero.jpg')">
+  <header id="top" class="hero reveal" style="--hero-img:url('img/hero.jpg')">
     <div class="container hero__inner">
       <div class="hero__panel reveal">
         <h1>Staryye druzya — кафе на Ленинградском шоссе ☕</h1>
@@ -33,7 +51,7 @@
 
         <div class="actions">
           <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
-          <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
           <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">📍 Маршрут</a>
         </div>
 
@@ -52,7 +70,7 @@
 
   <main>
     <!-- WHY -->
-    <section class="section">
+    <section class="section" aria-label="Преимущества">
       <div class="container grid grid--2">
         <div class="reveal">
           <h2>Почему гости выбирают нас ✨</h2>
@@ -85,8 +103,8 @@
       </div>
     </section>
 
-    <!-- TRY -->
-    <section class="section">
+    <!-- MENU -->
+    <section id="menu" class="section" aria-label="Меню">
       <div class="container">
         <div class="reveal">
           <h2>Что попробовать 😋</h2>
@@ -94,37 +112,37 @@
         </div>
 
         <div class="grid grid--3">
-          <article class="card reveal tilt">
+          <article class="card reveal">
             <div class="img"><img src="img/khachapuri.jpg" alt="Хачапури"></div>
             <h3>Хачапури 🧀</h3>
             <p class="muted">Часто встречается в отзывах гостей.</p>
           </article>
 
-          <article class="card reveal tilt">
+          <article class="card reveal">
             <div class="img"><img src="img/khinkali.jpg" alt="Хинкали"></div>
             <h3>Хинкали 🥟</h3>
             <p class="muted">Одна из самых обсуждаемых позиций.</p>
           </article>
 
-          <article class="card reveal tilt">
+          <article class="card reveal">
             <div class="img"><img src="img/shashlik.jpg" alt="Шашлык"></div>
             <h3>Шашлык / мясо 🔥</h3>
             <p class="muted">Тема “мясо” регулярно отмечается в отзывах.</p>
           </article>
 
-          <article class="card reveal tilt">
+          <article class="card reveal">
             <div class="img"><img src="img/chkmeruli.jpg" alt="Чкмерули"></div>
             <h3>Чкмерули 🍗</h3>
             <p class="muted">Его отдельно хвалят в отзывах.</p>
           </article>
 
-          <article class="card reveal tilt">
+          <article class="card reveal">
             <div class="img"><img src="img/kharcho.jpg" alt="Харчо"></div>
             <h3>Харчо 🍲</h3>
             <p class="muted">Встречается как сильный плюс.</p>
           </article>
 
-          <article class="card reveal tilt">
+          <article class="card reveal">
             <div class="img"><img src="img/terrace.jpg" alt="Веранда"></div>
             <h3>Веранда 🌿</h3>
             <p class="muted">Летняя терраса и зимняя веранда.</p>
@@ -133,13 +151,13 @@
 
         <div class="section__actions reveal">
           <a class="btn btn--primary" href="tel:+74956269528">📞 Уточнить меню и наличие мест</a>
-          <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+          <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
         </div>
       </div>
     </section>
 
     <!-- REVIEWS -->
-    <section class="section">
+    <section id="reviews" class="section" aria-label="Отзывы">
       <div class="container">
         <div class="reveal">
           <h2>Отзывы гостей 💛</h2>
@@ -159,12 +177,13 @@
             <p class="muted"><b>— гость из отзывов</b></p>
           </div>
         </div>
+
         <p class="note reveal">⭐ Рейтинг 4,7 • 📝 1183 оценок</p>
       </div>
     </section>
 
-    <!-- BOOKING + CONTACTS -->
-    <section class="section">
+    <!-- CONTACTS -->
+    <section id="contacts" class="section" aria-label="Контакты">
       <div class="container grid grid--2">
         <div class="card reveal">
           <h2 style="margin-top:0;">Забронировать столик 📅</h2>
@@ -188,7 +207,7 @@
 
             <div class="form__actions">
               <button class="btn btn--primary" type="submit">✅ Отправить заявку</button>
-              <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+              <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
             </div>
 
             <p class="note">
@@ -206,7 +225,7 @@
 
           <div class="actions">
             <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
-            <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
             <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">📍 Маршрут</a>
           </div>
 
@@ -233,30 +252,90 @@
   <!-- Sticky mobile bar -->
   <div class="sticky-bar" aria-label="Быстрые действия">
     <a href="tel:+74956269528" class="sticky-btn call">📞 Позвонить</a>
-    <a href="https://wa.me/74956269528" target="_blank" rel="noopener" class="sticky-btn wa">💬 WhatsApp</a>
+    <a href="https://wa.me/74956269528" target="_blank" rel="noopener" class="sticky-btn wa wa-pulse">💬 WhatsApp</a>
   </div>
 
-  <!-- Reveal animations (no libraries) -->
+  <!-- Back to top -->
+  <button class="to-top" type="button" aria-label="Наверх">⬆️</button>
+
   <script>
     (function () {
-      const items = document.querySelectorAll('.reveal');
-
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Reveal animations
+      const revealItems = document.querySelectorAll('.reveal');
       if (prefersReduced) {
-        items.forEach(el => el.classList.add('is-visible'));
-        return;
+        revealItems.forEach(el => el.classList.add('is-visible'));
+      } else {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              obs.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+        revealItems.forEach(el => obs.observe(el));
       }
 
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      // Back to top
+      const toTopBtn = document.querySelector('.to-top');
+      const toggleToTop = () => {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        if (y > 700) toTopBtn.classList.add('is-visible');
+        else toTopBtn.classList.remove('is-visible');
+      };
 
-      items.forEach(el => obs.observe(el));
+      toTopBtn.addEventListener('click', () => {
+        if (prefersReduced) {
+          window.scrollTo(0, 0);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      // Scrollspy (active nav item)
+      const navLinks = Array.from(document.querySelectorAll('.topnav__links a[data-spy]'));
+      const sections = navLinks
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+      const setActive = (id) => {
+        navLinks.forEach(a => {
+          const isActive = a.getAttribute('href') === ('#' + id);
+          a.classList.toggle('is-active', isActive);
+          a.setAttribute('aria-current', isActive ? 'page' : 'false');
+        });
+      };
+
+      if (!prefersReduced && sections.length) {
+        const spyObs = new IntersectionObserver((entries) => {
+          // выбираем самый "видимый" секшн
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visible && visible.target && visible.target.id) {
+            setActive(visible.target.id);
+          }
+        }, {
+          threshold: [0.2, 0.35, 0.5, 0.65],
+          rootMargin: '-15% 0px -70% 0px' // подсветка заранее, чтобы выглядело естественно
+        });
+
+        sections.forEach(sec => spyObs.observe(sec));
+      } else {
+        // fallback: активируем по клику
+        navLinks.forEach(a => a.addEventListener('click', () => {
+          const id = (a.getAttribute('href') || '').replace('#','');
+          if (id) setActive(id);
+        }));
+      }
+
+      // init
+      toggleToTop();
+      window.addEventListener('scroll', toggleToTop, { passive: true });
     })();
   </script>
 </body>
