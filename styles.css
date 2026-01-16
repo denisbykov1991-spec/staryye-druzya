@@ -1,27 +1,23 @@
 :root{
-  /* Base colors */
   --text:#0f172a;
-  --muted: rgba(15,23,42,.65);
+  --muted: rgba(15,23,42,.66);
   --border: rgba(15,23,42,.12);
 
   --primary:#0f172a;
   --whatsapp:#25D366;
 
-  /* Section backgrounds */
   --page-bg:#eef2f6;
   --mist:#f6f7fb;
   --sky:#eaf2ff;
   --paper:#ffffff;
   --dark:#0b1220;
 
-  /* Fonts */
+  --radius:18px;
+
   --font-body:"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-head:"Fraunces", Georgia, serif;
-
-  --radius:18px;
 }
 
-/* RESET */
 *{ box-sizing:border-box; }
 html,body{
   margin:0;
@@ -33,12 +29,19 @@ html,body{
 a{ color:inherit; text-decoration:none; }
 img{ max-width:100%; display:block; }
 
-/* LAYOUT */
 .container{
   max-width:1100px;
   margin:0 auto;
   padding:0 20px;
 }
+
+/* Typography */
+h1,h2{ font-family:var(--font-head); letter-spacing:-0.01em; }
+h1{ margin:0 0 10px; font-size:46px; line-height:1.05; }
+h2{ margin:0 0 10px; font-size:32px; line-height:1.1; }
+h3{ margin:12px 0 6px; font-size:18px; }
+.lead{ margin:8px 0 0; font-size:18px; line-height:1.45; }
+.muted{ color:var(--muted); }
 
 .section{
   padding:48px 0;
@@ -46,40 +49,32 @@ img{ max-width:100%; display:block; }
 .section--mist{ background:var(--mist); }
 .section--sky{ background:var(--sky); }
 .section--paper{ background:var(--paper); }
-.section--dark{
-  background:var(--dark);
-  color:#fff;
-}
-.section--dark .muted{ color:rgba(255,255,255,.7); }
+.section--dark{ background:var(--dark); color:#fff; }
+.section--dark .muted{ color:rgba(255,255,255,.72); }
 
-/* TYPOGRAPHY */
-h1,h2{
-  font-family:var(--font-head);
-  letter-spacing:-0.01em;
+.section--divider{
+  position:relative;
 }
-h1{
-  font-size:46px;
-  line-height:1.05;
-  margin:0 0 12px;
+.section--divider::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background: linear-gradient(to right, transparent, rgba(15,23,42,.12), transparent);
 }
-h2{
-  font-size:32px;
-  margin:0 0 12px;
+.section--dark.section--divider::before{
+  background: linear-gradient(to right, transparent, rgba(255,255,255,.14), transparent);
 }
-h3{
-  margin:12px 0 6px;
-  font-size:18px;
-}
-.lead{
-  font-size:18px;
-  line-height:1.45;
-}
-.muted{ color:var(--muted); }
 
-/* NAV */
+.section__head{ margin-bottom:14px; }
+
+/* Nav (not sticky) */
 .topnav{
-  background:rgba(255,255,255,.9);
-  border-bottom:1px solid var(--border);
+  background: rgba(255,255,255,.88);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
 }
 .topnav__inner{
   height:58px;
@@ -92,23 +87,26 @@ h3{
   font-weight:800;
   white-space:nowrap;
 }
+
 .topnav__links{
   display:flex;
-  gap:14px;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
 }
 .topnav__links a{
-  font-weight:700;
+  font-weight:800;
   font-size:14px;
-  padding:6px 10px;
-  border-radius:10px;
+  padding:7px 10px;
+  border-radius:12px;
+  color: rgba(15,23,42,.78);
 }
 .topnav__links a:hover{
-  background:rgba(15,23,42,.06);
+  background: rgba(15,23,42,.06);
+  color: rgba(15,23,42,.95);
 }
-.topnav__actions{
-  display:flex;
-  gap:8px;
-}
+
+.topnav__actions{ display:flex; gap:8px; }
 .topnav__btn{
   width:34px;
   height:34px;
@@ -120,15 +118,15 @@ h3{
   border:1px solid var(--border);
 }
 .topnav__btn--wa{
-  background:var(--whatsapp);
+  background: var(--whatsapp);
   color:#fff;
-  border-color:var(--whatsapp);
+  border-color: var(--whatsapp);
 }
 
-/* HERO */
+/* Hero */
 .hero{
   background:
-    linear-gradient(90deg, rgba(11,18,32,.7), rgba(11,18,32,.2)),
+    linear-gradient(90deg, rgba(11,18,32,.72), rgba(11,18,32,.2)),
     var(--hero-img);
   background-size:cover;
   background-position:center;
@@ -140,11 +138,12 @@ h3{
   padding:24px 0;
 }
 .hero__panel{
-  background:rgba(11,18,32,.45);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:var(--radius);
-  padding:18px;
   color:#fff;
+  background: rgba(11,18,32,.45);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius: var(--radius);
+  padding:18px;
+  max-width: 860px;
 }
 .meta{
   display:flex;
@@ -156,10 +155,11 @@ h3{
   font-size:14px;
   padding:6px 10px;
   border-radius:999px;
-  background:rgba(255,255,255,.15);
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.16);
 }
 
-/* BUTTONS */
+/* Buttons */
 .actions{
   display:flex;
   flex-wrap:wrap;
@@ -169,78 +169,117 @@ h3{
 .btn{
   padding:14px 18px;
   border-radius:12px;
-  font-weight:700;
+  font-weight:800;
   border:1px solid var(--border);
   background:#fff;
 }
 .btn--primary{
-  background:var(--primary);
+  background: var(--primary);
   color:#fff;
-  border-color:var(--primary);
+  border-color: var(--primary);
 }
 .btn--whatsapp{
-  background:var(--whatsapp);
+  background: var(--whatsapp);
   color:#fff;
-  border-color:var(--whatsapp);
+  border-color: var(--whatsapp);
 }
 .btn--ghost{
   background:#fff;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  gap:18px;
-}
-.grid--2{
-  grid-template-columns:repeat(2,1fr);
-}
-.grid--3{
-  grid-template-columns:repeat(3,1fr);
-}
+/* Grids */
+.grid{ display:grid; gap:18px; }
+.grid--2{ grid-template-columns: repeat(2, 1fr); }
+.grid--3{ grid-template-columns: repeat(3, 1fr); }
 
-/* CARDS */
+/* Cards */
 .card{
   background:#fff;
   border:1px solid var(--border);
-  border-radius:var(--radius);
+  border-radius: var(--radius);
   padding:16px;
+  box-shadow: 0 10px 26px rgba(15,23,42,.06);
 }
 .section--dark .card{
-  background:rgba(255,255,255,.06);
-  border-color:rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.14);
+  box-shadow: none;
 }
 
-/* 🔥 FIX: images inside cards */
+/* Base image style for any card images */
 .card > img{
   width:100%;
-  aspect-ratio:4/3;
+  aspect-ratio: 4/3;
   object-fit:cover;
   border-radius:14px;
   margin-bottom:10px;
 }
 
-/* LISTS */
+/* ✅ Fix menu images on desktop so they are not huge */
+@media (min-width: 901px){
+  .menu-card > img{
+    height: 200px;      /* adjust 180-220 */
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+}
+
+/* Lists */
 .bullets{
   padding-left:18px;
   line-height:1.7;
 }
-.bullets li{
-  margin:8px 0;
+.bullets li{ margin:8px 0; }
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  margin-top:12px;
+}
+.gallery img{
+  width:100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--border);
 }
 
-/* MAP */
+/* Forms */
+.form{ display:grid; gap:12px; margin-top:12px; }
+label span{ display:block; margin-bottom:6px; font-size:14px; color:var(--muted); }
+input, textarea{
+  width:100%;
+  border:1px solid rgba(15,23,42,.14);
+  border-radius:12px;
+  padding:12px 12px;
+  font-size:16px;
+  outline:none;
+  font-family: var(--font-body);
+  background:#fff;
+}
+textarea{ min-height:110px; resize:vertical; }
+.form__actions{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+
 .map{
-  margin-top:14px;
+  margin-top:12px;
   border-radius:14px;
   overflow:hidden;
   border:1px solid var(--border);
+  background:#fff;
 }
 
-/* FOOTER */
+.trust{
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px dashed rgba(15,23,42,.18);
+}
+
 .footer{
   padding:18px 0;
   border-top:1px solid var(--border);
+  background: transparent;
 }
 .footer__inner{
   display:flex;
@@ -249,23 +288,30 @@ h3{
   flex-wrap:wrap;
 }
 
-/* MOBILE */
-@media (max-width:900px){
+/* WhatsApp pulse (mobile only) */
+@keyframes waPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,.38); }
+  70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+@media (max-width: 900px){
+  .wa-pulse{ animation: waPulse 1.8s ease-out infinite; }
+
   h1{ font-size:34px; }
   h2{ font-size:26px; }
 
-  .grid--2,
-  .grid--3{
-    grid-template-columns:1fr;
-  }
+  .grid--2, .grid--3{ grid-template-columns:1fr; }
 
+  /* Mobile header: menu in one row */
+  .topnav__inner{
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    gap:8px;
+  }
   .topnav__links{
-    overflow-x:auto;
-    white-space:nowrap;
-  }
-
-  .hero__inner{
-    min-height:560px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
 
