@@ -26,8 +26,9 @@
         </div>
 
         <div class="actions">
-          <a class="btn btn--primary" href="tel:+74956269528">Позвонить: +7 (495) 626-95-28</a>
-          <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">Построить маршрут</a>
+          <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">📍 Маршрут</a>
         </div>
 
         <div class="chips">
@@ -124,6 +125,7 @@
 
         <div class="section__actions">
           <a class="btn btn--primary" href="tel:+74956269528">Уточнить меню и наличие мест</a>
+          <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">Написать в WhatsApp</a>
         </div>
       </div>
     </section>
@@ -155,9 +157,9 @@
       <div class="container grid grid--2">
         <div class="card">
           <h2 style="margin-top:0;">Забронировать столик</h2>
-          <p class="muted">Демо-форма (без отправки). Для брони — лучше звонок.</p>
+          <p class="muted">Демо-форма (без отправки). Для брони — лучше звонок или WhatsApp.</p>
 
-          <form class="form" onsubmit="event.preventDefault(); alert('Демо: форма отключена. Позвоните по телефону для бронирования.');">
+          <form class="form" onsubmit="event.preventDefault(); alert('Демо: форма отключена. Для бронирования позвоните или напишите в WhatsApp.');">
             <label>
               <span>Имя</span>
               <input required name="name" />
@@ -173,8 +175,14 @@
               <textarea name="comment" placeholder="дата/время, количество гостей, веранда/зал"></textarea>
             </label>
 
-            <button class="btn btn--primary" type="submit">Отправить заявку</button>
-            <p class="note">Или позвоните: <a href="tel:+74956269528"><b>+7 (495) 626-95-28</b></a></p>
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">Отправить заявку</button>
+              <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+            </div>
+
+            <p class="note">
+              Или позвоните: <a href="tel:+74956269528"><b>+7 (495) 626-95-28</b></a>
+            </p>
           </form>
         </div>
 
@@ -186,8 +194,9 @@
           <p><b>Часы:</b> открыто до 23:00</p>
 
           <div class="actions">
-            <a class="btn btn--primary" href="tel:+74956269528">Позвонить</a>
-            <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">Маршрут</a>
+            <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
+            <a class="btn btn--whatsapp" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+            <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">📍 Маршрут</a>
           </div>
 
           <div class="map">
@@ -209,5 +218,11 @@
       <div class="note">Демо-версия сайта. Использованы публичные данные из открытых источников.</div>
     </div>
   </footer>
+
+  <!-- Sticky mobile bar -->
+  <div class="sticky-bar" aria-label="Быстрые действия">
+    <a href="tel:+74956269528" class="sticky-btn call">📞 Позвонить</a>
+    <a href="https://wa.me/74956269528" target="_blank" rel="noopener" class="sticky-btn wa">💬 WhatsApp</a>
+  </div>
 </body>
 </html>
