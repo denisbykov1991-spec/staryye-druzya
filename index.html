@@ -8,14 +8,13 @@
 
   <link rel="canonical" href="https://denisbykov1991-spec.github.io/staryye-druzya/" />
 
-  <!-- Open Graph / Messengers preview -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ru_RU" />
   <meta property="og:site_name" content="Старые Друзья" />
   <meta property="og:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
   <meta property="og:description" content="Кавказская, русская и европейская кухня 🍽️ + летняя терраса и зимняя веранда 🌿. Москва, Ленинградское шоссе 65с1." />
   <meta property="og:url" content="https://denisbykov1991-spec.github.io/staryye-druzya/" />
-  <!-- если используешь PNG, замени на og.png -->
   <meta property="og:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,7 +23,6 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
   <meta name="twitter:description" content="Кухня Кавказа + классика 🍽️, веранда круглый год 🌿❄️. Москва." />
-  <!-- если используешь PNG, замени на og.png -->
   <meta name="twitter:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
 
   <!-- Fonts -->
@@ -42,7 +40,8 @@
       <a class="brand" href="#top" aria-label="Наверх">☕ Старые Друзья</a>
 
       <div class="topnav__links" role="navigation" aria-label="Разделы">
-        <a data-spy href="#menu">🍽️ Меню</a>
+        <a data-spy href="#about">✨ О кафе</a>
+        <a data-spy href="#menu">🍽️ Попробовать</a>
         <a data-spy href="#reviews">💛 Отзывы</a>
         <a data-spy href="#contacts">📍 Контакты</a>
       </div>
@@ -65,15 +64,15 @@
 
         <div class="meta">
           <span>⭐ 4,7</span>
-          <span>1183 оценок</span>
-          <span>💳 Средний чек 500 ₽</span>
+          <span>📝 1183 оценок</span>
+          <span>💳 Средний чек 500–500 ₽</span>
           <span>🕒 Открыто до 23:00</span>
         </div>
 
         <div class="actions">
           <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
           <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
-          <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">📍 Маршрут</a>
+          <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">🗺️ Яндекс Карты</a>
         </div>
 
         <div class="chips">
@@ -82,7 +81,7 @@
           <span class="chip">💳 Оплата картой</span>
           <span class="chip">🌿 Летняя терраса</span>
           <span class="chip">❄️ Зимняя веранда</span>
-          <span class="chip">☕ Кофе с собой</span>
+          <span class="chip">☕ Кофе</span>
           <span class="chip">🧑‍💼 Бизнес-ланч</span>
         </div>
       </div>
@@ -90,77 +89,102 @@
   </header>
 
   <main>
-    <!-- WHY -->
-    <section class="section" aria-label="Преимущества">
-      <div class="container grid grid--2">
-        <div class="reveal">
-          <h2>Почему гости выбирают нас ✨</h2>
-          <ul class="bullets">
-            <li><b>Атмосфера для встреч</b> — тихо и уютно, комфортно для компании 🤝</li>
-            <li><b>Кухня Кавказа + классика</b> — кавказская, русская и европейская кухни 🍽️</li>
-            <li><b>Веранда круглый год</b> — летняя терраса и зимняя веранда 🌿❄️</li>
-            <li><b>Можно быстро</b> — доставка и еда с собой 🥡🚚</li>
-          </ul>
+    <!-- ABOUT (light) -->
+    <section id="about" class="section section--light section--divider" aria-label="О кафе">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2>Уютное место для встреч ✨</h2>
+          <p class="muted">Тёплая атмосфера, понятная кухня и веранда круглый год — чтобы хотелось возвращаться 🙂</p>
         </div>
 
-        <aside class="card reveal">
-          <h3>Коротко о нас 👇</h3>
-          <div class="kpis">
-            <div class="kpi">
-              <div class="kpi__big">⭐ 4,7</div>
-              <div class="kpi__small">рейтинг</div>
-            </div>
-            <div class="kpi">
-              <div class="kpi__big">📝 1183</div>
-              <div class="kpi__small">оценок</div>
-            </div>
-            <div class="kpi">
-              <div class="kpi__big">💳 500–500 ₽</div>
-              <div class="kpi__small">средний чек</div>
+        <div class="grid grid--2">
+          <div class="reveal">
+            <ul class="bullets">
+              <li><b>Для компании и семей</b> — комфортно поговорить и поесть без суеты 🤝</li>
+              <li><b>Кухня Кавказа + классика</b> — кавказская, русская и европейская кухни 🍽️</li>
+              <li><b>Веранда круглый год</b> — летняя терраса и зимняя веранда 🌿❄️</li>
+              <li><b>Быстрые сценарии</b> — доставка и еда с собой 🥡🚚</li>
+            </ul>
+
+            <div class="card card--soft reveal" style="margin-top:14px;">
+              <div class="badges">
+                <span class="badge">⭐ 4,7</span>
+                <span class="badge">📝 1183 оценок</span>
+                <span class="badge">📍 Москва</span>
+              </div>
+              <p class="muted" style="margin:10px 0 0;">
+                📌 Адрес: Москва, Ленинградское шоссе, 65с1, этаж 1
+              </p>
             </div>
           </div>
-          <p class="muted">📍 Москва, Ленинградское шоссе, 65с1, этаж 1</p>
-        </aside>
+
+          <aside class="card reveal">
+            <h3 style="margin-top:0;">Небольшая галерея 📷</h3>
+            <p class="muted">Показывает атмосферу и блюда — без лишних слов.</p>
+
+            <div class="gallery">
+              <img src="img/hero.jpg" alt="Интерьер / атмосфера">
+              <img src="img/terrace.jpg" alt="Веранда">
+              <img src="img/khachapuri.jpg" alt="Хачапури">
+              <img src="img/shashlik.jpg" alt="Шашлык">
+            </div>
+
+            <div class="actions" style="margin-top:14px;">
+              <a class="btn btn--primary" href="tel:+74956269528">📞 Забронировать</a>
+              <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="card card--soft reveal" style="margin-top:16px;">
+          <h3 style="margin-top:0;">Для кого это кафе 👇</h3>
+          <div class="audience">
+            <div class="audience__item">👨‍👩‍👧‍👦 Семейные ужины</div>
+            <div class="audience__item">🤝 Встречи с друзьями</div>
+            <div class="audience__item">💼 Бизнес-ланчи</div>
+            <div class="audience__item">🎉 Небольшие праздники</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- MENU -->
-    <section id="menu" class="section" aria-label="Меню">
+    <!-- MENU (warm) -->
+    <section id="menu" class="section section--warm section--divider" aria-label="Что попробовать">
       <div class="container">
-        <div class="reveal">
+        <div class="section__head reveal">
           <h2>Что попробовать 😋</h2>
-          <p class="muted">Подборка популярных позиций по темам в отзывах.</p>
+          <p class="muted">Короткая подборка “хитов” по темам, которые часто всплывают в отзывах.</p>
         </div>
 
         <div class="grid grid--3">
           <article class="card reveal">
             <div class="img"><img src="img/khachapuri.jpg" alt="Хачапури"></div>
             <h3>Хачапури 🧀</h3>
-            <p class="muted">Часто встречается в отзывах гостей.</p>
+            <p class="muted">Классика Кавказа — идеальный старт.</p>
           </article>
 
           <article class="card reveal">
             <div class="img"><img src="img/khinkali.jpg" alt="Хинкали"></div>
             <h3>Хинкали 🥟</h3>
-            <p class="muted">Одна из самых обсуждаемых позиций.</p>
+            <p class="muted">Плотно, сочно, очень “по-дружески”.</p>
           </article>
 
           <article class="card reveal">
             <div class="img"><img src="img/shashlik.jpg" alt="Шашлык"></div>
             <h3>Шашлык / мясо 🔥</h3>
-            <p class="muted">Тема “мясо” регулярно отмечается в отзывах.</p>
+            <p class="muted">То, ради чего часто приходят снова.</p>
           </article>
 
           <article class="card reveal">
             <div class="img"><img src="img/chkmeruli.jpg" alt="Чкмерули"></div>
             <h3>Чкмерули 🍗</h3>
-            <p class="muted">Его отдельно хвалят в отзывах.</p>
+            <p class="muted">Нежно и ароматно — “комфорт-фуд”.</p>
           </article>
 
           <article class="card reveal">
             <div class="img"><img src="img/kharcho.jpg" alt="Харчо"></div>
             <h3>Харчо 🍲</h3>
-            <p class="muted">Встречается как сильный плюс.</p>
+            <p class="muted">Согревает и отлично заходит зимой.</p>
           </article>
 
           <article class="card reveal">
@@ -171,40 +195,71 @@
         </div>
 
         <div class="section__actions reveal">
-          <a class="btn btn--primary" href="tel:+74956269528">📞 Уточнить меню и наличие мест</a>
+          <a class="btn btn--primary" href="tel:+74956269528">📞 Уточнить меню и места</a>
           <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+          <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">🗺️ Маршрут</a>
         </div>
       </div>
     </section>
 
-    <!-- REVIEWS -->
-    <section id="reviews" class="section" aria-label="Отзывы">
+    <!-- REVIEWS (dark) -->
+    <section id="reviews" class="section section--dark section--divider" aria-label="Отзывы">
       <div class="container">
-        <div class="reveal">
+        <div class="section__head reveal">
           <h2>Отзывы гостей 💛</h2>
+          <p class="muted">Живые впечатления — то, что сильнее всего влияет на решение.</p>
         </div>
 
         <div class="grid grid--3">
-          <div class="card reveal">
+          <div class="card card--dark reveal">
             <p class="quote">«Очень душевная атмосфера! Вкусно всё… Прекрасно провели вечер с друзьями.»</p>
             <p class="muted"><b>— гость из отзывов</b></p>
           </div>
-          <div class="card reveal">
+
+          <div class="card card--dark reveal">
             <p class="quote">«Из плюсов — тихая территория, можно посидеть на улице… Харчо — отлично готовят.»</p>
             <p class="muted"><b>— гость из отзывов</b></p>
           </div>
-          <div class="card reveal">
+
+          <div class="card card--dark reveal">
             <p class="quote">«Веранда была очень уютной… отзывчивый и добрый персонал.»</p>
             <p class="muted"><b>— гость из отзывов</b></p>
           </div>
         </div>
 
-        <p class="note reveal">⭐ Рейтинг 4,7 • 📝 1183 оценок</p>
+        <div class="reviewbar reveal">
+          <div class="reviewbar__item"><b>⭐ 4,7</b><span class="muted">рейтинг</span></div>
+          <div class="reviewbar__sep"></div>
+          <div class="reviewbar__item"><b>📝 1183</b><span class="muted">оценок</span></div>
+          <div class="reviewbar__sep"></div>
+          <div class="reviewbar__item"><b>🕒</b><span class="muted">открыто до 23:00</span></div>
+        </div>
+
+        <div class="card card--dark reveal" style="margin-top:16px;">
+          <h3 style="margin-top:0;">Частые вопросы 🙋‍♂️</h3>
+
+          <div class="faq">
+            <details>
+              <summary>Можно ли забронировать столик?</summary>
+              <p class="muted">Да 🙂 Позвоните или напишите в WhatsApp — так быстрее всего.</p>
+            </details>
+
+            <details>
+              <summary>Есть ли веранда?</summary>
+              <p class="muted">Да 🌿 Есть летняя терраса и зимняя веранда.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли заказать с собой?</summary>
+              <p class="muted">Да 🥡 Доступна еда с собой и доставка.</p>
+            </details>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACTS -->
-    <section id="contacts" class="section" aria-label="Контакты">
+    <!-- CONTACTS (light) -->
+    <section id="contacts" class="section section--light section--divider" aria-label="Контакты">
       <div class="container grid grid--2">
         <div class="card reveal">
           <h2 style="margin-top:0;">Забронировать столик 📅</h2>
@@ -228,7 +283,7 @@
 
             <div class="form__actions">
               <button class="btn btn--primary" type="submit">✅ Отправить заявку</button>
-              <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 Написать в WhatsApp</a>
+              <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
             </div>
 
             <p class="note">
@@ -247,7 +302,7 @@
           <div class="actions">
             <a class="btn btn--primary" href="tel:+74956269528">📞 Позвонить</a>
             <a class="btn btn--whatsapp wa-pulse" href="https://wa.me/74956269528" target="_blank" rel="noopener">💬 WhatsApp</a>
-            <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">📍 Маршрут</a>
+            <a class="btn btn--ghost" href="https://yandex.ru/maps/org/staryye_druzya/107307470305/" target="_blank" rel="noopener">🗺️ Яндекс Карты</a>
           </div>
 
           <div class="map">
@@ -258,6 +313,8 @@
               style="border:0;">
             </iframe>
           </div>
+
+          <p class="trust muted">ℹ️ Демо-версия: контент собран из открытых источников (карты/отзывы). Сайт можно использовать как официальный после подключения домена.</p>
         </div>
       </div>
     </section>
@@ -266,7 +323,7 @@
   <footer class="footer reveal">
     <div class="container footer__inner">
       <div class="muted">© Старые Друзья • Москва</div>
-      <div class="note">ℹ️ Демо-версия сайта. Использованы публичные данные из открытых источников.</div>
+      <div class="note">💡 Демо-версия сайта. Можно подключить домен и использовать как официальный.</div>
     </div>
   </footer>
 
@@ -283,13 +340,13 @@
     (function () {
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      /* (3) Compact header (CSS handles sizes) */
+      // (3) Compact header
       const setCompactNav = () => {
         const y = window.scrollY || document.documentElement.scrollTop;
         document.body.classList.toggle('is-compact-nav', y > 60);
       };
 
-      /* Reveal animations */
+      // Reveal animations
       const revealItems = document.querySelectorAll('.reveal');
       if (prefersReduced) {
         revealItems.forEach(el => el.classList.add('is-visible'));
@@ -306,7 +363,7 @@
         revealItems.forEach(el => obs.observe(el));
       }
 
-      /* Back to top */
+      // Back to top
       const toTopBtn = document.querySelector('.to-top');
       const toggleToTop = () => {
         const y = window.scrollY || document.documentElement.scrollTop;
@@ -319,7 +376,7 @@
         else window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      /* Scrollspy + (2) auto-scroll nav to active item */
+      // Scrollspy + (2) auto-scroll menu to active item
       const navLinks = Array.from(document.querySelectorAll('.topnav__links a[data-spy]'));
       const sections = navLinks
         .map(a => document.querySelector(a.getAttribute('href')))
@@ -344,7 +401,7 @@
 
         // auto-scroll nav (only if it can scroll)
         if (!prefersReduced && activeLink) {
-          const parent = activeLink.parentElement; // .topnav__links
+          const parent = activeLink.parentElement;
           if (parent && parent.scrollWidth > parent.clientWidth) {
             activeLink.scrollIntoView({
               behavior: 'smooth',
@@ -370,27 +427,20 @@
         sections.forEach(sec => spyObs.observe(sec));
       }
 
-      // If user opened with #hash - reflect immediately
-      if (location.hash) {
-        const id = location.hash.replace('#','');
-        setActive(id);
-      } else {
-        // default active if at top
-        if (sections[0] && sections[0].id) setActive(sections[0].id);
-      }
+      // reflect hash immediately
+      if (location.hash) setActive(location.hash.replace('#',''));
+      else if (sections[0]?.id) setActive(sections[0].id);
 
-      /* init */
+      // init
       toggleToTop();
       setCompactNav();
 
       window.addEventListener('scroll', toggleToTop, { passive: true });
       window.addEventListener('scroll', setCompactNav, { passive: true });
 
-      // also update on resize (helps mobile menu)
       window.addEventListener('resize', () => {
         if (location.hash) setActive(location.hash.replace('#',''));
       }, { passive: true });
-
     })();
   </script>
 </body>
