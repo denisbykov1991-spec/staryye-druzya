@@ -3,15 +3,9 @@
   --muted: rgba(0,0,0,.65);
   --border: rgba(0,0,0,.12);
   --radius: 18px;
-
-  /* приятный "кафейный" фон */
   --page-bg: #f6f2ec;
-
-  /* цвета кнопок */
   --primary: #111;
   --whatsapp: #25D366;
-
-  /* шрифты */
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
 }
@@ -28,14 +22,12 @@ html,body{
 a{ color:inherit; }
 .container{ max-width:1100px; margin:0 auto; padding:0 20px; }
 
-/* Top nav */
+/* Top nav (NOT sticky) */
 .topnav{
-  position: sticky;
-  top: 0;
-  z-index: 9998;
-  background: rgba(246,242,236,.78);
+  position: static;          /* <-- меню больше не "прилипает" */
+  z-index: auto;
+  background: rgba(246,242,236,.95);
   border-bottom: 1px solid rgba(0,0,0,.08);
-  backdrop-filter: blur(10px);
 }
 .topnav__inner{
   display:flex;
@@ -61,7 +53,6 @@ a{ color:inherit; }
   padding: 8px 10px;
   border-radius: 12px;
   transition: background .18s ease, color .18s ease, transform .12s ease;
-  position: relative;
 }
 .topnav__links a:hover{
   background: rgba(0,0,0,.06);
@@ -72,13 +63,10 @@ a{ color:inherit; }
   background: rgba(0,0,0,.10);
   color: rgba(0,0,0,.95);
 }
-.topnav__actions{
-  display:flex;
-  gap:10px;
-}
+
+.topnav__actions{ display:flex; gap:10px; }
 .topnav__btn{
-  width:38px;
-  height:38px;
+  width:38px; height:38px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -309,7 +297,7 @@ textarea{ min-height:110px; resize:vertical; }
 .to-top{
   position: fixed;
   right: 16px;
-  bottom: 88px; /* над sticky-bar */
+  bottom: 88px;
   width: 46px;
   height: 46px;
   border-radius: 14px;
@@ -321,7 +309,6 @@ textarea{ min-height:110px; resize:vertical; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
@@ -353,15 +340,9 @@ textarea{ min-height:110px; resize:vertical; }
   .hero{ min-height: 560px; }
   .hero__inner{ min-height: 560px; }
   .sticky-bar{ display:flex; }
-
-  /* pulse only on mobile */
   .wa-pulse{ animation: waPulse 1.8s ease-out infinite; }
-
-  /* nav links a bit tighter */
   .topnav__links{ gap:8px; }
   .topnav__links a{ padding: 7px 8px; }
-
-  /* to-top above sticky bar */
   .to-top{ bottom: 92px; }
 }
 
@@ -371,3 +352,4 @@ textarea{ min-height:110px; resize:vertical; }
   .btn:hover, .card:hover, .to-top:hover { transform: none !important; box-shadow: none !important; }
   html,body{ scroll-behavior: auto; }
 }
+
