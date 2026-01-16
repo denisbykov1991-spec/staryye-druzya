@@ -4,10 +4,16 @@
   --border: rgba(0,0,0,.12);
   --radius: 18px;
   --page-bg: #f6f2ec;
+
   --primary: #111;
   --whatsapp: #25D366;
+
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --font-head: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  /* header sizing */
+  --nav-h: 58px;
+  --nav-h-compact: 46px;
 }
 
 *{ box-sizing:border-box; }
@@ -22,30 +28,55 @@ html,body{
 a{ color:inherit; }
 .container{ max-width:1100px; margin:0 auto; padding:0 20px; }
 
-/* Top nav (NOT sticky) */
+/* =========================
+   TOP NAV (not sticky)
+   + underline animation (1)
+   + scrollspy active styles
+   ========================= */
 .topnav{
-  position: static;          /* <-- меню больше не "прилипает" */
+  position: static;
   z-index: auto;
   background: rgba(246,242,236,.95);
   border-bottom: 1px solid rgba(0,0,0,.08);
 }
+
+/* inner layout */
 .topnav__inner{
+  height: var(--nav-h);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
   padding: 10px 0;
+  transition: height .18s ease, padding .18s ease;
 }
+
+/* compact mode (3) — activated via body.is-compact-nav */
+body.is-compact-nav .topnav__inner{
+  height: var(--nav-h-compact);
+  padding: 6px 0;
+}
+
+/* brand */
 .brand{
   text-decoration:none;
   font-weight:900;
   letter-spacing:-0.01em;
+  white-space: nowrap;
+  transition: transform .18s ease, opacity .18s ease;
 }
+body.is-compact-nav .brand{
+  transform: translateY(-1px);
+}
+
+/* links */
 .topnav__links{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
+  align-items:center;
 }
+
 .topnav__links a{
   text-decoration:none;
   font-weight:800;
@@ -53,17 +84,48 @@ a{ color:inherit; }
   padding: 8px 10px;
   border-radius: 12px;
   transition: background .18s ease, color .18s ease, transform .12s ease;
+  position: relative;
+  outline: none;
 }
+
+/* underline base */
+.topnav__links a::after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 99px;
+  background: rgba(0,0,0,.70);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease, opacity .18s ease;
+  opacity: .0;
+}
+
+/* hover */
 .topnav__links a:hover{
   background: rgba(0,0,0,.06);
   color: rgba(0,0,0,.92);
   transform: translateY(-1px);
 }
+.topnav__links a:hover::after{
+  transform: scaleX(.45);
+  opacity: .35;
+}
+
+/* active */
 .topnav__links a.is-active{
   background: rgba(0,0,0,.10);
   color: rgba(0,0,0,.95);
 }
+.topnav__links a.is-active::after{
+  transform: scaleX(1);
+  opacity: .95;
+}
 
+/* actions */
 .topnav__actions{ display:flex; gap:10px; }
 .topnav__btn{
   width:38px; height:38px;
@@ -87,14 +149,18 @@ a{ color:inherit; }
   color:#fff;
 }
 
-/* Typography */
+/* =========================
+   TYPOGRAPHY
+   ========================= */
 h1,h2{ font-family: var(--font-head); }
 h1{ margin:0; font-size:44px; line-height:1.05; letter-spacing:-0.01em; }
 h2{ margin:0 0 14px; font-size:32px; line-height:1.12; letter-spacing:-0.01em; }
 h3{ margin:12px 0 8px; font-size:18px; }
 .lead{ margin:10px 0 0; font-size:18px; line-height:1.45; }
 
-/* HERO */
+/* =========================
+   HERO
+   ========================= */
 .hero{
   position:relative;
   min-height: 520px;
@@ -128,7 +194,9 @@ h3{ margin:12px 0 8px; font-size:18px; }
   background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
 }
 
-/* Buttons */
+/* =========================
+   BUTTONS
+   ========================= */
 .actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
 .btn{
   display:inline-flex;
@@ -164,7 +232,9 @@ h3{ margin:12px 0 8px; font-size:18px; }
   100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
 }
 
-/* Chips */
+/* =========================
+   CHIPS
+   ========================= */
 .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
 .chip{
   font-size:14px;
@@ -174,7 +244,9 @@ h3{ margin:12px 0 8px; font-size:18px; }
   background:rgba(255,255,255,.10);
 }
 
-/* Sections */
+/* =========================
+   LAYOUT / CARDS
+   ========================= */
 .section{ padding: 34px 0; }
 .grid{ display:grid; gap:16px; }
 .grid--2{ grid-template-columns: 1.2fr .8fr; align-items:start; }
@@ -227,7 +299,9 @@ h3{ margin:12px 0 8px; font-size:18px; }
   gap:10px;
 }
 
-/* Form */
+/* =========================
+   FORM
+   ========================= */
 .form{ display:grid; gap:12px; margin-top:12px; }
 label span{ display:block; margin-bottom:6px; font-size:14px; color:var(--muted); }
 input,textarea{
@@ -253,6 +327,7 @@ textarea{ min-height:110px; resize:vertical; }
   align-items:center;
 }
 
+/* Map */
 .map{
   margin-top:14px;
   border-radius: 14px;
@@ -265,7 +340,9 @@ textarea{ min-height:110px; resize:vertical; }
 .footer{ padding:18px 0; border-top:1px solid var(--border); background: transparent; }
 .footer__inner{ display:flex; gap:12px; justify-content:space-between; align-items:center; flex-wrap:wrap; }
 
-/* Sticky mobile bar */
+/* =========================
+   STICKY MOBILE BAR
+   ========================= */
 .sticky-bar{
   position:fixed;
   bottom:0;
@@ -293,7 +370,9 @@ textarea{ min-height:110px; resize:vertical; }
 .sticky-btn.call{ background:var(--primary); color:#fff; }
 .sticky-btn.wa{ background:var(--whatsapp); color:#fff; }
 
-/* Back to top button */
+/* =========================
+   BACK TO TOP
+   ========================= */
 .to-top{
   position: fixed;
   right: 16px;
@@ -309,6 +388,7 @@ textarea{ min-height:110px; resize:vertical; }
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
@@ -321,7 +401,9 @@ textarea{ min-height:110px; resize:vertical; }
 }
 .to-top:hover{ transform: translateY(-1px); }
 
-/* Reveal animations */
+/* =========================
+   REVEAL
+   ========================= */
 .reveal{
   opacity: 0;
   transform: translateY(14px);
@@ -332,7 +414,11 @@ textarea{ min-height:110px; resize:vertical; }
   transform: translateY(0);
 }
 
-/* Mobile + responsive */
+/* =========================
+   RESPONSIVE
+   - mobile header in a row
+   - WA pulse on mobile
+   ========================= */
 @media (max-width: 900px){
   h1{ font-size:34px; }
   h2{ font-size:28px; }
@@ -340,16 +426,78 @@ textarea{ min-height:110px; resize:vertical; }
   .hero{ min-height: 560px; }
   .hero__inner{ min-height: 560px; }
   .sticky-bar{ display:flex; }
+
+  /* (mobile) header: brand | menu (row) | actions */
+  .topnav__inner{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+    height: var(--nav-h);
+    padding: 10px 0;
+  }
+
+  body.is-compact-nav .topnav__inner{
+    height: var(--nav-h-compact);
+    padding: 6px 0;
+  }
+
+  .brand{
+    font-size: 15px;
+  }
+
+  /* menu ALWAYS in one row + horizontal scroll if needed */
+  .topnav__links{
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 6px;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 0;
+  }
+  .topnav__links::-webkit-scrollbar{ display:none; }
+
+  .topnav__links a{
+    flex: 0 0 auto;
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* underline placement tighter on small */
+  .topnav__links a::after{
+    left: 10px;
+    right: 10px;
+    bottom: 4px;
+  }
+
+  .topnav__actions{
+    gap: 6px;
+  }
+  .topnav__btn{
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  /* pulse only on mobile */
   .wa-pulse{ animation: waPulse 1.8s ease-out infinite; }
-  .topnav__links{ gap:8px; }
-  .topnav__links a{ padding: 7px 8px; }
+
+  /* to-top above sticky bar */
   .to-top{ bottom: 92px; }
 }
 
-/* Reduce motion */
+/* =========================
+   REDUCE MOTION
+   ========================= */
 @media (prefers-reduced-motion: reduce){
-  .btn, .card, .reveal, input, textarea, .wa-pulse, .to-top { transition: none !important; animation: none !important; }
-  .btn:hover, .card:hover, .to-top:hover { transform: none !important; box-shadow: none !important; }
+  .btn, .card, .reveal, input, textarea, .wa-pulse, .to-top,
+  .topnav__inner, .brand, .topnav__links a, .topnav__links a::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .btn:hover, .card:hover, .to-top:hover, .topnav__links a:hover { transform: none !important; box-shadow: none !important; }
   html,body{ scroll-behavior: auto; }
 }
-
