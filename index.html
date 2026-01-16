@@ -6,7 +6,6 @@
   <title>Старые Друзья — кафе на Ленинградском шоссе</title>
   <meta name="description" content="Кафе «Старые Друзья»: кавказская, русская и европейская кухня, летняя терраса и зимняя веранда. Москва, Ленинградское шоссе 65с1. Тел.: +7 (495) 626-95-28." />
 
-  <!-- Canonical (важно: если у репозитория другое имя, замени /staryye-druzya/) -->
   <link rel="canonical" href="https://denisbykov1991-spec.github.io/staryye-druzya/" />
 
   <!-- Open Graph / Messengers preview -->
@@ -16,6 +15,7 @@
   <meta property="og:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
   <meta property="og:description" content="Кавказская, русская и европейская кухня 🍽️ + летняя терраса и зимняя веранда 🌿. Москва, Ленинградское шоссе 65с1." />
   <meta property="og:url" content="https://denisbykov1991-spec.github.io/staryye-druzya/" />
+  <!-- если используешь PNG, замени на og.png -->
   <meta property="og:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -24,6 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
   <meta name="twitter:description" content="Кухня Кавказа + классика 🍽️, веранда круглый год 🌿❄️. Москва." />
+  <!-- если используешь PNG, замени на og.png -->
   <meta name="twitter:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
 
   <!-- Fonts -->
@@ -65,7 +66,7 @@
         <div class="meta">
           <span>⭐ 4,7</span>
           <span>1183 оценок</span>
-          <span>💳 Средний чек 500–500 ₽</span>
+          <span>💳 Средний чек 500 ₽</span>
           <span>🕒 Открыто до 23:00</span>
         </div>
 
@@ -282,7 +283,13 @@
     (function () {
       const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // Reveal animations
+      /* (3) Compact header (CSS handles sizes) */
+      const setCompactNav = () => {
+        const y = window.scrollY || document.documentElement.scrollTop;
+        document.body.classList.toggle('is-compact-nav', y > 60);
+      };
+
+      /* Reveal animations */
       const revealItems = document.querySelectorAll('.reveal');
       if (prefersReduced) {
         revealItems.forEach(el => el.classList.add('is-visible'));
@@ -299,7 +306,7 @@
         revealItems.forEach(el => obs.observe(el));
       }
 
-      // Back to top
+      /* Back to top */
       const toTopBtn = document.querySelector('.to-top');
       const toggleToTop = () => {
         const y = window.scrollY || document.documentElement.scrollTop;
@@ -312,18 +319,40 @@
         else window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // Scrollspy
+      /* Scrollspy + (2) auto-scroll nav to active item */
       const navLinks = Array.from(document.querySelectorAll('.topnav__links a[data-spy]'));
       const sections = navLinks
         .map(a => document.querySelector(a.getAttribute('href')))
         .filter(Boolean);
 
+      let currentActiveId = '';
+
       const setActive = (id) => {
+        if (!id) return;
+        if (id === currentActiveId) return;
+
+        currentActiveId = id;
+
+        let activeLink = null;
+
         navLinks.forEach(a => {
           const isActive = a.getAttribute('href') === ('#' + id);
           a.classList.toggle('is-active', isActive);
           a.setAttribute('aria-current', isActive ? 'page' : 'false');
+          if (isActive) activeLink = a;
         });
+
+        // auto-scroll nav (only if it can scroll)
+        if (!prefersReduced && activeLink) {
+          const parent = activeLink.parentElement; // .topnav__links
+          if (parent && parent.scrollWidth > parent.clientWidth) {
+            activeLink.scrollIntoView({
+              behavior: 'smooth',
+              inline: 'center',
+              block: 'nearest'
+            });
+          }
+        }
       };
 
       if (!prefersReduced && sections.length) {
@@ -331,6 +360,7 @@
           const visible = entries
             .filter(e => e.isIntersecting)
             .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
           if (visible && visible.target && visible.target.id) setActive(visible.target.id);
         }, {
           threshold: [0.2, 0.35, 0.5, 0.65],
@@ -340,8 +370,27 @@
         sections.forEach(sec => spyObs.observe(sec));
       }
 
+      // If user opened with #hash - reflect immediately
+      if (location.hash) {
+        const id = location.hash.replace('#','');
+        setActive(id);
+      } else {
+        // default active if at top
+        if (sections[0] && sections[0].id) setActive(sections[0].id);
+      }
+
+      /* init */
       toggleToTop();
+      setCompactNav();
+
       window.addEventListener('scroll', toggleToTop, { passive: true });
+      window.addEventListener('scroll', setCompactNav, { passive: true });
+
+      // also update on resize (helps mobile menu)
+      window.addEventListener('resize', () => {
+        if (location.hash) setActive(location.hash.replace('#',''));
+      }, { passive: true });
+
     })();
   </script>
 </body>
