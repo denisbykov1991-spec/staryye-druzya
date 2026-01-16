@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Старые Друзья — кафе на Ленинградском шоссе</title>
-  <meta name="description" content="Кафе Старые Друзья: кавказская, русская и европейская кухня, летняя терраса и зимняя веранда. Москва, Ленинградское шоссе 65с1. Тел.: +7 (495) 626-95-28." />
+  <meta name="description" content="Кафе «Старые Друзья»: кавказская, русская и европейская кухня, летняя терраса и зимняя веранда. Москва, Ленинградское шоссе 65с1. Тел.: +7 (495) 626-95-28." />
 
-  <!-- Canonical (замени username) -->
+  <!-- Canonical (важно: если у репозитория другое имя, замени /staryye-druzya/) -->
   <link rel="canonical" href="https://denisbykov1991-spec.github.io/staryye-druzya/" />
 
-  <!-- Open Graph / Messengers preview (замени username) -->
+  <!-- Open Graph / Messengers preview -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ru_RU" />
-  <meta property="og:site_name" content="Staryye druzya" />
+  <meta property="og:site_name" content="Старые Друзья" />
   <meta property="og:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
   <meta property="og:description" content="Кавказская, русская и европейская кухня 🍽️ + летняя терраса и зимняя веранда 🌿. Москва, Ленинградское шоссе 65с1." />
   <meta property="og:url" content="https://denisbykov1991-spec.github.io/staryye-druzya/" />
@@ -22,7 +22,7 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Старые друзья — кафе на Ленинградском шоссе ☕" />
+  <meta name="twitter:title" content="Старые Друзья — кафе на Ленинградском шоссе ☕" />
   <meta name="twitter:description" content="Кухня Кавказа + классика 🍽️, веранда круглый год 🌿❄️. Москва." />
   <meta name="twitter:image" content="https://denisbykov1991-spec.github.io/staryye-druzya/img/og.jpg" />
 
@@ -38,7 +38,7 @@
   <!-- Top nav (НЕ sticky) -->
   <nav class="topnav" aria-label="Навигация">
     <div class="container topnav__inner">
-      <a class="brand" href="#top" aria-label="Наверх">☕ Старые друзья</a>
+      <a class="brand" href="#top" aria-label="Наверх">☕ Старые Друзья</a>
 
       <div class="topnav__links" role="navigation" aria-label="Разделы">
         <a data-spy href="#menu">🍽️ Меню</a>
@@ -57,7 +57,7 @@
   <header id="top" class="hero reveal" style="--hero-img:url('img/hero.jpg')">
     <div class="container hero__inner">
       <div class="hero__panel reveal">
-        <h1>Старые друзья — кафе на Ленинградском шоссе ☕</h1>
+        <h1>Старые Друзья — кафе на Ленинградском шоссе ☕</h1>
         <p class="lead">
           Кавказская, русская и европейская кухня 🍽️ + летняя терраса и зимняя веранда 🌿
         </p>
@@ -312,7 +312,7 @@
         else window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // Scrollspy (active nav item)
+      // Scrollspy
       const navLinks = Array.from(document.querySelectorAll('.topnav__links a[data-spy]'));
       const sections = navLinks
         .map(a => document.querySelector(a.getAttribute('href')))
@@ -331,7 +331,6 @@
           const visible = entries
             .filter(e => e.isIntersecting)
             .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-
           if (visible && visible.target && visible.target.id) setActive(visible.target.id);
         }, {
           threshold: [0.2, 0.35, 0.5, 0.65],
@@ -339,20 +338,11 @@
         });
 
         sections.forEach(sec => spyObs.observe(sec));
-      } else {
-        navLinks.forEach(a => a.addEventListener('click', () => {
-          const id = (a.getAttribute('href') || '').replace('#','');
-          if (id) setActive(id);
-        }));
       }
 
-      // init
       toggleToTop();
       window.addEventListener('scroll', toggleToTop, { passive: true });
     })();
   </script>
 </body>
 </html>
-
-
-
