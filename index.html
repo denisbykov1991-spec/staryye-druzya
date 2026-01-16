@@ -6,6 +6,26 @@
   <title>Staryye druzya — кафе на Ленинградском шоссе</title>
   <meta name="description" content="Кафе Staryye druzya: кавказская, русская и европейская кухня, летняя терраса и зимняя веранда. Москва, Ленинградское шоссе 65с1. Тел.: +7 (495) 626-95-28." />
 
+  <!-- Canonical (замени username) -->
+  <link rel="canonical" href="https://YOUR_GH_USERNAME.github.io/staryye-druzya/" />
+
+  <!-- Open Graph / Messengers preview (замени username) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:site_name" content="Staryye druzya" />
+  <meta property="og:title" content="Staryye druzya — кафе на Ленинградском шоссе ☕" />
+  <meta property="og:description" content="Кавказская, русская и европейская кухня 🍽️ + летняя терраса и зимняя веранда 🌿. Москва, Ленинградское шоссе 65с1." />
+  <meta property="og:url" content="https://YOUR_GH_USERNAME.github.io/staryye-druzya/" />
+  <meta property="og:image" content="https://YOUR_GH_USERNAME.github.io/staryye-druzya/img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Staryye druzya — кафе на Ленинградском шоссе ☕" />
+  <meta name="twitter:description" content="Кухня Кавказа + классика 🍽️, веранда круглый год 🌿❄️. Москва." />
+  <meta name="twitter:image" content="https://YOUR_GH_USERNAME.github.io/staryye-druzya/img/og.jpg" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +35,7 @@
 </head>
 
 <body>
-  <!-- Top anchor nav -->
+  <!-- Top nav (НЕ sticky) -->
   <nav class="topnav" aria-label="Навигация">
     <div class="container topnav__inner">
       <a class="brand" href="#top" aria-label="Наверх">☕ Staryye druzya</a>
@@ -288,11 +308,8 @@
       };
 
       toTopBtn.addEventListener('click', () => {
-        if (prefersReduced) {
-          window.scrollTo(0, 0);
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        if (prefersReduced) window.scrollTo(0, 0);
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       // Scrollspy (active nav item)
@@ -311,22 +328,18 @@
 
       if (!prefersReduced && sections.length) {
         const spyObs = new IntersectionObserver((entries) => {
-          // выбираем самый "видимый" секшн
           const visible = entries
             .filter(e => e.isIntersecting)
             .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-          if (visible && visible.target && visible.target.id) {
-            setActive(visible.target.id);
-          }
+          if (visible && visible.target && visible.target.id) setActive(visible.target.id);
         }, {
           threshold: [0.2, 0.35, 0.5, 0.65],
-          rootMargin: '-15% 0px -70% 0px' // подсветка заранее, чтобы выглядело естественно
+          rootMargin: '-15% 0px -70% 0px'
         });
 
         sections.forEach(sec => spyObs.observe(sec));
       } else {
-        // fallback: активируем по клику
         navLinks.forEach(a => a.addEventListener('click', () => {
           const id = (a.getAttribute('href') || '').replace('#','');
           if (id) setActive(id);
