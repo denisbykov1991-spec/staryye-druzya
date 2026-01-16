@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>OG generator — Старые Друзья</title>
+
+  <!-- Fonts (для canvas: ждём загрузку document.fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin:0; min-height:100vh; display:grid; place-items:center;
+      background:#0f0f0f; color:#fff; font-family: Inter, system-ui;
+      padding:24px;
+    }
+    .wrap{ display:grid; gap:14px; justify-items:center; max-width: 980px; width: 100%; }
+    canvas{
+      width: 960px; max-width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+      background:#111;
+    }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+    button{
+      border:0; border-radius: 12px; padding: 12px 16px;
+      font-weight: 900; cursor:pointer;
+    }
+    .hint{ color: rgba(255,255,255,.65); font-size: 14px; text-align:center; line-height:1.45; }
+    code{ background: rgba(255,255,255,.08); padding:2px 6px; border-radius:8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <canvas id="og" width="1200" height="630"></canvas>
+
+    <div class="row">
+      <button id="render">Перерисовать</button>
+      <button id="download">Скачать PNG</button>
+    </div>
+
+    <div class="hint">
+      ✅ Работает надёжно, если открыть по <b>http(s)</b> (GitHub Pages / локальный сервер).<br/>
+      Если ты открыл как <code>file://</code> и не скачивает — запусти локально:
+      <code>python -m http.server 8000</code> → <code>http://localhost:8000/og.html</code>
+    </div>
+  </div>
+
+  <script>
+    const W = 1200, H = 630;
+    const canvas = document.getElementById('og');
+    const ctx = canvas.getContext('2d');
+
+    function roundRect(x, y, w, h, r) {
+      const rr = Math.min(r, w/2, h/2);
+      ctx.beginPath();
+      ctx.moveTo(x+rr, y);
+      ctx.arcTo(x+w, y, x+w, y+h, rr);
+      ctx.arcTo(x+w, y+h, x, y+h, rr);
+      ctx.arcTo(x, y+h, x, y, rr);
+      ctx.arcTo(x, y, x+w, y, rr);
+      ctx.closePath();
+    }
+
+    function drawChip(x, y, text) {
+      ctx.save();
+      ctx.font = '700 22px Inter, system-ui';
+      const padX = 18, padY = 12;
+      const tw = ctx.measureText(text).width;
+      const cw = tw + padX*2;
+      const ch = 22 + padY*2;
+
+      // chip bg
+      ctx.globalAlpha = 0.12;
+      ctx.fillStyle = '#ffffff';
+      roundRect(x, y, cw, ch, 999);
+      ctx.fill();
+
+      // chip border
+      ctx.globalAlpha = 0.22;
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      roundRect(x, y, cw, ch, 999);
+      ctx.stroke();
+
+      // chip text
+      ctx.globalAlpha = 0.92;
+      ctx.fillStyle = '#ffffff';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, x + padX, y + ch/2 + 1);
+
+      ctx.restore();
+      return cw;
+    }
+
+    async function renderOG() {
+      // Clean
+      ctx.clearRect(0,0,W,H);
+
+      // Background base
+      ctx.fillStyle = '#0f0f0f';
+      ctx.fillRect(0,0,W,H);
+
+      // Clip rounded card
+      ctx.save();
+      roundRect(0,0,W,H,36);
+      ctx.clip();
+
+      // Background image
+      const bg = new Image();
+      bg.crossOrigin = 'anonymous';
+      bg.src = 'img/hero.jpg';
+
+      await new Promise((resolve) => {
+        bg.onload = resolve;
+        bg.onerror = resolve; // если не загрузится — всё равно отрисуем остальное
+      });
+
+      if (bg.complete && bg.naturalWidth) {
+        // cover
+        const scale = Math.max(W / bg.naturalWidth, H / bg.naturalHeight);
+        const dw = bg.naturalWidth * scale;
+        const dh = bg.naturalHeight * scale;
+        const dx = (W - dw) / 2;
+        const dy = (H - dh) / 2;
+
+        ctx.globalAlpha = 0.34;
+        ctx.drawImage(bg, dx, dy, dw, dh);
+        ctx.globalAlpha = 1;
+      }
+
+      // Overlay gradient left->right
+      const g1 = ctx.createLinearGradient(0,0,W,0);
+      g1.addColorStop(0, 'rgba(0,0,0,0.78)');
+      g1.addColorStop(1, 'rgba(0,0,0,0.22)');
+      ctx.fillStyle = g1;
+      ctx.fillRect(0,0,W,H);
+
+      // Soft green radial
+      const g2 = ctx.createRadialGradient(220,140,10, 220,140,520);
+      g2.addColorStop(0, 'rgba(37,211,102,0.22)');
+      g2.addColorStop(1, 'rgba(37,211,102,0)');
+      ctx.fillStyle = g2;
+      ctx.fillRect(0,0,W,H);
+
+      // Content
+      const pad = 64;
+
+      // Brand
+      ctx.fillStyle = 'rgba(255,255,255,0.95)';
+      ctx.font = '800 28px Inter, system-ui';
+      ctx.fillText('☕ Старые Друзья', pad, pad + 6);
+
+      // Title
+      ctx.font = '700 78px "Playfair Display", Georgia, serif';
+      ctx.fillText('Кафе на Ленинградском шоссе', pad, pad + 110);
+
+      // Subtitle
+      ctx.font = '700 34px Inter, system-ui';
+      ctx.fillStyle = 'rgba(255,255,255,0.88)';
+      ctx.fillText('Кухня Кавказа + классика 🍽️ • Веранда круглый год 🌿❄️', pad, pad + 170);
+
+      // Chips
+      let cx = pad, cy = pad + 210;
+      cx += drawChip(cx, cy, '⭐ 4,7') + 12;
+      cx += drawChip(cx, cy, '📝 1183 оценок') + 12;
+      drawChip(cx, cy, '📍 Москва');
+
+      // Bottom left hint
+      ctx.font = '600 18px Inter, system-ui';
+      ctx.fillStyle = 'rgba(255,255,255,0.65)';
+      ctx.fillText('Демо-версия сайта • GitHub Pages', pad, H - pad + 6);
+
+      // Bottom right CTA
+      const ctaText = '💬 WhatsApp';
+      ctx.font = '900 22px Inter, system-ui';
+      const tW = ctx.measureText(ctaText).width;
+      const bx = W - pad - (tW + 44);
+      const by = H - pad - 22;
+      const bw = tW + 44;
+      const bh = 52;
+
+      // button
+      ctx.fillStyle = '#25D366';
+      roundRect(bx, by, bw, bh, 18);
+      ctx.fill();
+
+      // button text
+      ctx.fillStyle = '#0b0b0b';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(ctaText, bx + 22, by + bh/2 + 1);
+
+      ctx.restore();
+
+      // outer shadow-ish border
+      ctx.save();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+      roundRect(0.5,0.5,W-1,H-1,36);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    async function ensureFonts() {
+      // ждём шрифты (чтобы canvas рисовал ими, а не запасными)
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+      } catc
